@@ -47,6 +47,7 @@ void setup() {
   size( 800, 400 );
   textAlign( CENTER );
   imageMode( CENTER );
+  frameRate( 4 );
 }
 
 void draw() {
@@ -60,7 +61,6 @@ void draw() {
 
   alice = alice +1;
   println( alice );
-  frameRate( 4 );
 
   // -------------------- INTRO --------------------
 
@@ -301,5 +301,6 @@ void draw() {
   }
 
   void reiniciar() {    
-    alice = 1;
+    alice = 0;
+    frameCount = 0;
   }
