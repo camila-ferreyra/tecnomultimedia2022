@@ -1,31 +1,38 @@
-int cant = 5;
+int cant = 4;
 int tam;
-color c1, c2;
+
 void setup() {
 
   size ( 400, 400 );
+  background ( 0 );
   tam = width/cant;
-  colorMode( RGB );
-
-  c1 = color ( 243, 250, 63, 70 );
-  c2 = color ( 160, 10, 255 );
 }
 
 void draw() {
 
-  float mx = map ( mouseX, 0, width, 0, random ( 243 ));
-  float my = map ( mouseY, 0, height, 0, random ( 160 ));
-    background( mx, 0, my );
-  noFill();
-  strokeWeight( 3 );
 
-  for ( int i = 0; i < cant; i ++ ) {
-    for ( int e = 0; e < cant; e ++ ) {
-      float d = dist ( mouseX, mouseY, i*tam+tam/2, e*tam+tam/2);
-      stroke( c1 );
-      ellipse ( i*tam+tam/2, e*tam+tam/2, d*2, d*2 );
-      stroke( c2 );
-      ellipse ( i*tam, e*tam, d*2, d*2 );
+  noFill();
+  stroke ( 71, random ( 250 ), 170 );
+  strokeWeight( 1 );
+  for ( int a = 0; a < cant; a++ ) {
+    for ( int b = 0; b < cant; b++ ) {
+      float d = dist ( mouseX, mouseY, a*tam+tam/2, b*tam+tam/2 );
+      ellipse ( a*tam+tam/2, b*tam+tam/2, d*2, d*2 );
+
+      if ( mousePressed ) {
+        stroke ( random (144) , 229,  49 );
+        ellipse ( a*tam+tam/2, b*tam+tam/2, d*2, d*2 );
+      }
     }
   }
+}
+
+void reinicio() {
+  background ( 0 );
+}
+
+void keyPressed() {
+
+  if ( key == 'R' );
+  reinicio();
 }
