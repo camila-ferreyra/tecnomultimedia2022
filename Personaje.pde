@@ -3,37 +3,34 @@ class Personaje {
   // propiedades de la clase 
   float posX, posY;
   int c, tam;
-  PImage[] pjgreenD = new PImage[3];
-  PImage[] pjgreenI = new PImage[3];
+  PImage[] pikaD = new PImage[3];
+  PImage[] pikaI = new PImage[3];
 
   // setup de la clase 
   Personaje() {
 
     tam = 185;
-    posX = 80;
-    posY = height - posX;
+    posX = 30;
+    posY = 556;
     c = 0;
 
     for ( int i = 0; i < 3; i++ ) {
-      pjgreenD[i] = loadImage( "pder0" + i + ".png" );
+      pikaD[i] = loadImage( "pder0" + i + ".gif" );
     }
     for ( int i = 0; i < 3; i++ ) {
-      pjgreenI[i] = loadImage( "pizq0" + i + ".png" );
+      pikaI[i] = loadImage( "pizq0" + i + ".gif" );
     }
   }
 
   void show() {
 
-    push();
-    tint(230);
     if ( keyCode == RIGHT ) {
-      image( pjgreenD[c], posX, posY + 40, tam, tam );
-    } else if ( keyCode ==LEFT ) {
-      image( pjgreenI[c], posX, posY + 40, tam, tam );
+      image( pikaD[c], posX, posY -10 , tam/1.6, tam/2.2 );
+    } else if ( keyCode == LEFT ) {
+      image( pikaI[c], posX, posY -10 , tam/1.6, tam/2.2 );
     } else {
-      image( pjgreenD[0], posX, posY + 40, tam, tam );
+      image( pikaD[0], posX, posY -10 , tam/1.6, tam/2.2 );
     }
-    pop();
   }
 
   void moveleft() {
