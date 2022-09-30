@@ -1,12 +1,21 @@
+import ddf.minim.*;
+
+Minim PokemonMusic;
+AudioPlayer player;
 Background forest;
-Personaje pj;
+Personaje pika;
+Pokemon bulbasaur, snorlax;
 
 void setup() {
 
   size( 1100, 600 );
-  pj = new Personaje();
+  PokemonMusic = new Minim(this);
+  player = PokemonMusic.loadFile( "pokeintro.mp3" );
+  
+  pika = new Personaje();
   forest = new Background();
-
+  bulbasaur = new Pokemon( 300, 550 );
+  snorlax = new Pokemon();
 }
 
 void draw() {
@@ -15,8 +24,16 @@ void draw() {
 
 void keyPressed() {
   if ( keyCode == LEFT )
-    pj.moveleft();
+    pika.moveleft();
 
   if ( keyCode == RIGHT )
-    pj.moveright();
+    pika.moveright();
+    
+  if ( key == 'p' ){
+    player.play();
+    player.loop();
+  }
+    if ( key == 'd' ){
+    player.pause();
+  }
 }
